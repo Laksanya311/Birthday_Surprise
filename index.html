@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Kowsalya 💕😘!</title>
+    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap)" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #ff85a2;
+            --secondary-gold: #ffd700;
+            --soft-white: #fff5f7;
+            --text-color: #4a4a4a;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--soft-white);
+            color: var(--text-color);
+            margin: 0;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        /* --- Header Section --- */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('[images.unsplash.com](https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&w=1500&q=80)');
+            background-size: cover;
+            color: white;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            margin-bottom: 10px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* --- Music Player --- */
+        .music-container {
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        /* --- Letter Section --- */
+        .letter-section {
+            padding: 80px 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .envelope {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        /* --- Photo Gallery --- */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            background: #ffeef2;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- Special Surprise (Confetti) --- */
+        #surprise-btn {
+            background-color: var(--primary-pink);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 50px 0;
+            transition: 0.3s;
+        }
+
+        #surprise-btn:hover {
+            background-color: #ff5c85;
+            box-shadow: 0 5px 15px rgba(255, 133, 162, 0.4);
+        }
+
+        footer {
+            padding: 40px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Happy Birthday, Kowsi 💖💟!</h1>
+        <p>A little digital surprise for a special person.</p>
+    </header>
+
+    <div class="music-container">
+        <p>🎵 Press Play for Birthday Vibes</p>
+        <!-- Replace the src with your friend's favorite song file or a YouTube embed -->
+        <audio controls>
+            <source src="[bensound.com](https://www.bensound.com/bensound-music/bensound-buddy.mp3)" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <section class="letter-section">
+        <h2>A Message for You</h2>
+        <div class="envelope">
+            <p>Dearest Kowsalya mental ❣️,</p>
+            <p>
+                Today is all about you! I wanted to create something unique to remind you of how much 
+                you mean to everyone around you. You are the kind of friend who makes life brighter 
+                just by being in it.
+            </p>
+            <p>
+                From all the inside jokes to the late-night talks, every moment has been a treasure. 
+                I hope this year brings you as much joy as you give to others.
+            </p>
+            <p>With love,<br>— Laks ❤️</p>
+        </div>
+    </section>
+
+    <h2 style="margin-top: 50px;">Memories Together</h2>
+    <div class="gallery">
+        <!-- Replace these placeholder images with your own photo links -->
+        <img src="C:\Users\laksa\Downloads\image5.jpg.jpeg" alt="Memory 1">
+        <img src="C:\Users\laksa\Downloads\image1.jpg.jpeg" alt="Memory 2">
+        <img src="C:\Users\laksa\Downloads\image3.jpg.jpeg" alt="Memory 3">
+        <img src="C:\Users\laksa\Downloads\image4.jpg.jpeg" alt="Memory 4">
+    </div>
+
+    <section>
+        <button id="surprise-btn" onclick="celebrate()">Click for a Surprise!</button>
+        <canvas id="confetti-canvas" style="position: fixed; top: 0; left: 0; pointer-events: none;"></canvas>
+    </section>
+
+    <footer>
+        Made with ❤️ specifically for you.
+    </footer>
+
+    <!-- Confetti Script -->
+    <script src="[cdn.jsdelivr.net](https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js)"></script>
+    <script>
+        function celebrate() {
+            var duration = 5 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+            function randomInRange(min, max) {
+              return Math.random() * (max - min) + min;
+            }
+
+            var interval = setInterval(function() {
+              var timeLeft = animationEnd - Date.now();
+
+              if (timeLeft <= 0) {
+                return clearInterval(interval);
+              }
+
+              var particleCount = 50 * (timeLeft / duration);
+              // since particles fall down, start a bit higher than random
+              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
+            
+            alert("Wishing you the happiest birthday ever! 🎂✨");
+        }
+    </script>
+</body>
+</html>
